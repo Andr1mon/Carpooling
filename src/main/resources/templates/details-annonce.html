@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Error Register</title>
+</head>
+
+<body class="bg-light">
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light "style="background-color: #293878; color: white; border-bottom: 1px solid #fff;">
+    <a class="navbar-brand text-white" href="#">Carpooling </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/creer-annonce}">AddTrips</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/liste-trajets-user}">MyTrips</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/liste-annonce}">SeeTrips</a>
+            </li>
+            <li>
+        <form th:action="@{/logout}" method="POST">
+			<input type="submit"  value="Logout" class="btn btn-danger btn-lg"></input>
+		</form></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container bg-light text-center" style=" opacity:0.95;   width: 50%;">
+  <div  style="display: inline-block; width: 100%; ">
+    <h1>The details of this announcement.</h1>
+
+
+        <p> Travel Time : <span style="color:#e5442d;" th:text="${annonce.duree}" /></p>
+    	<p>Check the current weather/route with this map.</p>
+
+    	<span th:utext="${link}"></span>
+    
+<p>Driver Comments: <span style="color:#e5442d;" th:text="${annonce.commentaire}" /></p>
+  </div>
+</div>
+
+
+    <!-- Copyright -->
+    <footer class="bg-white text-dark text-center py-3 fixed-bottom w-100" style="border-top: 2mm solid #007BFF">
+  <p>&copy; SANOGO KASSOUM | UNIV LE MANS</p>
+</footer>
+  
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-vB8TKf3xKlwqvZYZY+F92cbWgUCkeO1x4z0REfvw1U+1LOt7X0WrsjR4k2CtnQhK" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JzKqIjtMsZ6q3GG89EBL2a+8XDqLOa2nxEcXjR7XKnJlwuGi5bMyTKsG+lnRZxq/z" crossorigin="anonymous"></script>
+
+</body>
+</html>

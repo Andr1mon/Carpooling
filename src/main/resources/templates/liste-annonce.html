@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>List-Announce</title>
+</head>
+
+<body class="bg-light">
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light "style="background-color: #293878; color: white; border-bottom: 1px solid #fff;">
+    <a class="navbar-brand text-white" href="#">Carpooling </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/creer-annonce}">AddTrips</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/liste-trajets-user}">MyTrips</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/liste-annonce}">SeeTrips</a>
+            </li>
+            <li>
+        <form th:action="@{/logout}" method="POST">
+			<input type="submit"  value="Logout" class="btn btn-danger btn-lg"></input>
+		</form></li>
+        </ul>
+    </div>
+</nav>
+
+<p class="text-center h1 font-weight-bold mb-4 mx-4 mx-md-4 mt-5">See our Carpooling Announce</p>
+
+
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>User</th>
+      <th>Departure</th>     
+      <th>Destination</th>
+      <th>Status</th>
+      <th>Maps and Comments</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr th:each="tempAnnonces: ${annonces}">        
+    
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">Madeth May</p>
+            <p class="text-muted mb-0">May@gmail.com</p>
+          </div>
+        </div>
+      </td>
+           
+        <td th:text="${tempAnnonces.depart}" />
+      </td>
+      
+        <td th:text="${tempAnnonces.arrive}" />
+      </td>
+      
+      <td>
+            <span th:switch="${statusList[tempAnnoncesStat.index]}">
+                  <span th:case="0"><a class="btn btn-success btn-sm" th:text="Participer" th:href="@{/accepte-annonce(annonce_id=${tempAnnonces.id})}" /></span>
+                  <span th:case="1">Accepté</span>
+                  <span th:case="2">Refusé</span>
+                  <span th:case="3">Conducteur</span>
+                  <span th:case="4">Demande envoyée</span>
+              </span>    
+          </td>
+      
+      <td> 
+      <a class="btn btn-info btn-sm" th:text="Details" th:href="@{/details-annonce(annonce_id=${tempAnnonces.id})}" />
+      </td>  
+        
+    </tr>  
+  </tbody>
+</table>
+
+
+
+    <!-- Copyright -->
+    <footer class="bg-white text-dark text-center py-3 fixed-bottom w-100" style="border-top: 2mm solid #007BFF">
+  <p>&copy; SANOGO KASSOUM | UNIV LE MANS</p>
+</footer>
+  
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-vB8TKf3xKlwqvZYZY+F92cbWgUCkeO1x4z0REfvw1U+1LOt7X0WrsjR4k2CtnQhK" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JzKqIjtMsZ6q3GG89EBL2a+8XDqLOa2nxEcXjR7XKnJlwuGi5bMyTKsG+lnRZxq/z" crossorigin="anonymous"></script>
+
+</body>
+</html>

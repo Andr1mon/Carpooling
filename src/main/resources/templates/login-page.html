@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Login</title>
+</head>
+
+<body class="bg-light">
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://i.imgur.com/TyZWq4k.png"
+          class="img-fluid" alt="al image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form th:action="@{/authenticateTheUser}" method="POST" >
+        <p class="text-center h1 font-weight-bold mb-4 mx-1 mx-md-2 mt-2">Welcome in Carpooling</p>
+        <p class="text-center h1 font-weight-bold mb-4 mx-1 mx-md-2 mt-2">Sign in</p>
+        
+          <div  class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start"> </div>
+       
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input input type="text" name="username" class="form-control form-control-lg"
+              placeholder="Enter a valid username" required />
+            <label class="form-label" for="username">Username</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input input type="password" name="password" class="form-control form-control-lg"
+              placeholder="Enter password" required />
+            <label class="form-label" for="password">Password</label>
+          </div>
+          
+          <!-- Place for messages: error, alert etc ... -->
+			<div class="col-xs-15">
+				<div>
+
+					<!-- Check for login error -->
+					<div th:if="${param.error}">
+						<div class="alert alert-danger" style="display: inline-block; margin-left: 20%;">
+						Wrong Password and Username.</div>
+					</div>
+
+					<!-- Check for logout -->
+					<div th:if="${param.logout}">
+						<div class="alert alert-success" style="display: inline-block; margin-left: 28%;">
+						You are disconnected.</div>
+					</div>
+					
+				</div>
+			</div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+            <div class="form-check mb-0">
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+                Remember me
+              </label>
+            </div>
+            <a href="#!" class="text-body">Forgot password?</a>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+          
+            <button type="submit" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              
+            <h3 class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/registration"
+                class="link-danger">Register</a></h3>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <!-- Copyright -->
+    <footer class="bg-white text-dark text-center py-3 fixed-bottom w-100" style="border-top: 2mm solid #007BFF">
+  <p>&copy; SANOGO KASSOUM.</p>
+</footer>
+  </div>
+  
+</section>
+  <style>
+    .divider:after,
+    .divider:before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    .h-custom {
+      height: calc(100% - 73px);
+    }
+
+    @media (max-width: 450px) {
+      .h-custom {
+        height: 100%;
+      }
+    }
+  </style>
+
+<!-- Bootstrap JavaScript and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-vB8TKf3xKlwqvZYZY+F92cbWgUCkeO1x4z0REfvw1U+1LOt7X0WrsjR4k2CtnQhK" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JzKqIjtMsZ6q3GG89EBL2a+8XDqLOa2nxEcXjR7XKnJlwuGi5bMyTKsG+lnRZxq/z" crossorigin="anonymous"></script>
+
+</body>
+</html>
